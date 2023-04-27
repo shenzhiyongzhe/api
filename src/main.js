@@ -1,11 +1,7 @@
- const Koa = require('Koa')
+const { APP_PORT } = require('./config/config.default')
 
- const {APP_PORT} = require('./config/config.default')
- const app = new Koa()
+const app = require('./app')
 
- app.use((ctx, next) => {
-    ctx.body = 'hello world'
- })
- app.listen(3000, ()=>{ 
-    console.log(`server is running on http://localhost:${APP_PORT}`)
- }) 
+app.listen(APP_PORT, () => {
+  console.log(`server is running on http://localhost:${APP_PORT}`)
+})
